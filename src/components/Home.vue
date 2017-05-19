@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
-    <MyTunes class="my-tunes"></MyTunes>
     <Itunes class="itunes"></Itunes>
+    <MyTunes  class="my-tunes"></MyTunes>
   </div>
 </template>
 

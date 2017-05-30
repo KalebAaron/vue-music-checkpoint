@@ -26,9 +26,9 @@
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
                 <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a @click="addTrack(song, 'general')">Promote</a></li>
-                <li><a @click="addTrack(song, 'dopeNasty')">Demote</a></li>
-                <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove</a></li>
+                <li><a @click="promoteTrack(song, 'general')">Promote</a></li>
+                <li><a @click="demoteTrack(song, 'general')">Demote</a></li>
+                <li><a @click="removeTrack(song, 'general')">Remove</a></li>
               </ul>
             </div>
           </div>
@@ -62,9 +62,9 @@
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
                 <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a @click="addTrack(song, 'general')">Promote</a></li>
-                <li><a @click="addTrack(song, 'dopeNasty')">Demote</a></li>
-                <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
+                <li><a @click="promoteTrack(song, 'dopeNasty')">Promote</a></li>
+                <li><a @click="demoteTrack(song, 'dopeNasty')">Demote</a></li>
+                <li><a @click="removeTrack(song, 'dopeNasty')">Remove from Playlist</a></li>
               </ul>
             </div>
           </div>
@@ -98,8 +98,8 @@
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
                 <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a @click="promoteTrack(song)">Promote</a></li>
-                <li><a @click="demoteTrack(song, 'dopeNasty')">Demote</a></li>
+                <li><a @click="promoteTrack(song, 'evenDopeNastier')">Promote</a></li>
+                <li><a @click="demoteTrack(song, 'evenDopeNastier')">Demote</a></li>
                 <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
               </ul>
             </div>

@@ -36,21 +36,21 @@ export default {
     // YOU CAN READ MORE ABOUT VUE.SET HERE
     // https://vuejs.org/v2/api/#Vue-set
    },
-  removeTrack(track, playlist) {
-    myTunes.playlist.splice(track, 1)
-    Vue.set(myTunes, track.id, track)
+  removeTrack(song, playlist) {
+    var i = myTunes.playlist.indexOf(song)
+    myTunes.playlist.splice(i, 1)
     saveMytunes()
    },
-    promoteTrack(song) {
+    promoteTrack(song, playlist) {
     song.likes++
-    myTunes.songs.sort(function(a, b){
+    myTunes.playlist.sort(function(a, b){
       return b.likes - a.likes
     })
     saveMytunes()
    },
-  demoteTrack(song) { 
+  demoteTrack(song, playlist) { 
     song.likes--
-    myTunes.songs.sort(function(a, b){
+    myTunes.playlist.sort(function(a, b){
       return b.likes - a.likes
     })
     saveMytunes()

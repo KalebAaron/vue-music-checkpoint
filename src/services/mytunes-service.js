@@ -33,11 +33,26 @@ export default {
     myTunes[playlist].push(track)
     Vue.set(myTunes, track.id, track)
     saveMytunes()
-    console.log(myTunes)
     // YOU CAN READ MORE ABOUT VUE.SET HERE
     // https://vuejs.org/v2/api/#Vue-set
    },
-  removeTrack() { },
-  promoteTrack() { },
-  demoteTrack() { }
+  removeTrack(track, playlist) {
+    myTunes.playlist.splice(track, 1)
+    Vue.set(myTunes, track.id, track)
+    saveMytunes()
+   },
+    promoteTrack(song) {
+    song.likes++
+    myTunes.songs.sort(function(a, b){
+      return b.likes - a.likes
+    })
+    saveMytunes()
+   },
+  demoteTrack(song) { 
+    song.likes--
+    myTunes.songs.sort(function(a, b){
+      return b.likes - a.likes
+    })
+    saveMytunes()
+  }
 }

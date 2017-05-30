@@ -28,7 +28,7 @@
               <ul class="dropdown-menu">
                 <li><a @click="addTrack(song, 'general')">Promote</a></li>
                 <li><a @click="addTrack(song, 'dopeNasty')">Demote</a></li>
-                <li><a @click="addTrack(song, 'evenDopeNastier')">Remove</a></li>
+                <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove</a></li>
               </ul>
             </div>
           </div>
@@ -64,7 +64,7 @@
               <ul class="dropdown-menu">
                 <li><a @click="addTrack(song, 'general')">Promote</a></li>
                 <li><a @click="addTrack(song, 'dopeNasty')">Demote</a></li>
-                <li><a @click="addTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
+                <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
               </ul>
             </div>
           </div>
@@ -98,9 +98,9 @@
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
                 <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a @click="addTrack(song, 'general')">Promote</a></li>
-                <li><a @click="addTrack(song, 'dopeNasty')">Demote</a></li>
-                <li><a @click="addTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
+                <li><a @click="promoteTrack(song)">Promote</a></li>
+                <li><a @click="demoteTrack(song, 'dopeNasty')">Demote</a></li>
+                <li><a @click="removeTrack(song, 'evenDopeNastier')">Remove from Playlist</a></li>
               </ul>
             </div>
           </div>
@@ -128,7 +128,17 @@ export default {
     getTracks(){
       this.myTunes = MyTunesService.getTracks()
 
+    },
+    removeTrack(){
+      this.myTunes = MyTunesService.removeTrack()
+    },
+    promoteTrack(){
+      this.myTunes = MyTunesService.promoteTrack()
+    },
+     demoteTrack(){
+      this.myTunes = MyTunesService.demoteTrack()
     }
+
   },
   components:{},
   mounted(){

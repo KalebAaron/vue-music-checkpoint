@@ -37,20 +37,31 @@ export default {
     // https://vuejs.org/v2/api/#Vue-set
    },
   removeTrack(song, playlist) {
-    var i = myTunes.playlist.indexOf(song)
-    myTunes.playlist.splice(i, 1)
+    var i = myTunes[playlist].indexOf(song)
+    myTunes[playlist].splice(i, 1)
     saveMytunes()
    },
     promoteTrack(song, playlist) {
-    song.likes++
-    myTunes.playlist.sort(function(a, b){
+      console.log(song)
+      if(!song.likes){
+        song.likes = 1
+      }
+      else{
+      song.likes++
+      }
+    myTunes[playlist].sort(function(a, b){
       return b.likes - a.likes
     })
     saveMytunes()
    },
-  demoteTrack(song, playlist) { 
+  demoteTrack(song, playlist) {
+    if(!song.likes){
+      song.like = 0
+    }
+    else{
     song.likes--
-    myTunes.playlist.sort(function(a, b){
+    } 
+    myTunes[playlist].sort(function(a, b){
       return b.likes - a.likes
     })
     saveMytunes()

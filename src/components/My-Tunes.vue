@@ -129,14 +129,14 @@ export default {
       this.myTunes = MyTunesService.getTracks()
 
     },
-    removeTrack(){
-      this.myTunes = MyTunesService.removeTrack()
+    removeTrack(song, playlist){
+      this.myTunes = MyTunesService.removeTrack(song, playlist)
     },
-    promoteTrack(){
-      this.myTunes = MyTunesService.promoteTrack()
+    promoteTrack(song, playlist){
+      this.myTunes = MyTunesService.promoteTrack(song, playlist)
     },
-     demoteTrack(){
-      this.myTunes = MyTunesService.demoteTrack()
+     demoteTrack(song, playlist){
+      this.myTunes = MyTunesService.demoteTrack(song, playlist)
     }
 
   },

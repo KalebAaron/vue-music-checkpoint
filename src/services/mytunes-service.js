@@ -30,6 +30,7 @@ export default {
     // OCCASIONALLY YOU WILL RUN INTO ISSUES WHERE VUE WILL BE
     // UNAWARE THAT A CHANGE HAS OCCURED TO YOUR DATA
     // TO ELIMINATE THIS PROBLEM YOU CAN USE 
+    track.likes = 0
     myTunes[playlist].push(track)
     Vue.set(myTunes, track.id, track)
     saveMytunes()
@@ -40,27 +41,22 @@ export default {
     var i = myTunes[playlist].indexOf(song)
     myTunes[playlist].splice(i, 1)
     saveMytunes()
+    
    },
     promoteTrack(song, playlist) {
+      debugger
       console.log(song)
-      if(!song.likes){
-        song.likes = 1
-      }
-      else{
       song.likes++
-      }
+      
     myTunes[playlist].sort(function(a, b){
       return b.likes - a.likes
     })
     saveMytunes()
    },
   demoteTrack(song, playlist) {
-    if(!song.likes){
-      song.like = 0
-    }
-    else{
+    console.log(song)
+    debugger
     song.likes--
-    } 
     myTunes[playlist].sort(function(a, b){
       return b.likes - a.likes
     })
